@@ -20,6 +20,7 @@ Route::middleware(['auth'])->group(function (){
     Route::get('top', [PostsController::class, 'index']);
     // 投稿一覧（トップページ）
     Route::get('/posts', [PostsController::class, 'index']);
+    Route::post('/posts', [PostsController::class, 'store'])->name('posts.store');
     Route::post('/posts/authorCreate/{id}', [PostsController::class, 'authorCreate'])->name('posts.authorCreate');
     Route::get('/posts/delete/{id}', [PostsController::class, 'delete'])->name('posts.delete');
 
