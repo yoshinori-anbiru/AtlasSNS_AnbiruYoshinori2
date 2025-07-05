@@ -1,3 +1,4 @@
+//アコーディオンを Alpine.jsで実装するためにインポート
 import './bootstrap';
 
 import Alpine from 'alpinejs';
