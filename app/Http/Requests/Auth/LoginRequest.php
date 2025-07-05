@@ -2,19 +2,18 @@
 
 namespace App\Http\Requests\Auth;
 
-use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\RateLimiter;
-use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
 class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
@@ -22,64 +21,34 @@ class LoginRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
+     * @return array<string, mixed>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
+            'email' => ['required', 'email', 'exists:users,email'],
+            'password' => ['required', 'string', 'min:8'],
         ];
     }
 
-    /**
-     * Attempt to authenticate the request's credentials.
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    public function authenticate(): void
+
+    public function messages(): array
+{
+    return [
+        'email.required'    => 'メールアドレスは必須です。',
+        'email.email'       => '正しいメールアドレスの形式で入力してください。',
+        'email.exists'      => 'このメールアドレスは登録されていません。',
+        'password.required' => 'パスワードは必須です。',
+        'password.min'      => 'パスワードは8文字以上で入力してください。',
+    ];
+}
+
+  public function authenticate(): void
     {
-        $this->ensureIsNotRateLimited();
-
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
-            RateLimiter::hit($this->throttleKey());
-
+        if (!Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                'email' => __('認証に失敗しました。メールアドレスまたはパスワードが間違っています。'),
             ]);
         }
-
-        RateLimiter::clear($this->throttleKey());
-    }
-
-    /**
-     * Ensure the login request is not rate limited.
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    public function ensureIsNotRateLimited(): void
-    {
-        if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
-            return;
-        }
-
-        event(new Lockout($this));
-
-        $seconds = RateLimiter::availableIn($this->throttleKey());
-
-        throw ValidationException::withMessages([
-            'email' => trans('auth.throttle', [
-                'seconds' => $seconds,
-                'minutes' => ceil($seconds / 60),
-            ]),
-        ]);
-    }
-
-    /**
-     * Get the rate limiting throttle key for the request.
-     */
-    public function throttleKey(): string
-    {
-        return Str::transliterate(Str::lower($this->input('email')).'|'.$this->ip());
     }
 }
