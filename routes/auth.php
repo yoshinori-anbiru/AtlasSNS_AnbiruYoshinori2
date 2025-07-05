@@ -15,9 +15,9 @@ Route::middleware('guest')->group(function () {
 
     Route::get('register', [RegisteredUserController::class, 'create']);
     Route::post('register', [RegisteredUserController::class, 'store']);
-
-    Route::get('added', [RegisteredUserController::class, 'added']);
-    Route::post('added', [RegisteredUserController::class, 'added']);
+    // ->name('added');でルートに名前をつける、addedで呼び出せる。URLが変わっても呼び出すことが可能
+    Route::get('added', [RegisteredUserController::class, 'added'])->name('added');
+  
 
 });
 

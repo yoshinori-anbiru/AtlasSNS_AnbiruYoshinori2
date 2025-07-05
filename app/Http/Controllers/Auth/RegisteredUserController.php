@@ -30,16 +30,22 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
+
+
     public function store(RegisterRequest $request): RedirectResponse
     {
-         $validated = $request->validated();
-        User::create([
+        $validated = $request->validated();
+        //  ユーザー作成
+       $user = User::create([
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect('added');
+            // セッションに一時保存（次のリクエストでのみ有効）
+            session()->flash('username', $user->username);
+
+        return redirect()->route('added');
     }
 
     public function added(): View
