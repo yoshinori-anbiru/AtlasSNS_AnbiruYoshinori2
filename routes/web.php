@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\FollowsController;
 
 // ログイン処理
 
@@ -25,7 +26,26 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/posts/delete/{id}', [PostsController::class, 'delete'])->name('posts.delete');
 
     Route::get('profile', [ProfileController::class, 'profile']);
-    Route::get('search', [UsersController::class, 'index']);
-    Route::get('follow-list', [PostsController::class, 'index']);
-    Route::get('follower-list', [PostsController::class, 'index']);
+    Route::get('/search', [UsersController::class, 'search'])->name('users.search');
+
+
+    Route::post('/follow/{id}', [FollowsController::class, 'follow'])->name('follow');
+    Route::post('/unfollow/{id}', [FollowsController::class, 'unfollow'])->name('unfollow');
+
+    Route::get('/follow-list', [FollowsController::class, 'followList'])->name('follow.list');
+    Route::get('/follower-list', [FollowsController::class, 'followerList'])->name('follower.list');
+
+    
+    
+    Route::get('/users/{id}', [ProfileController::class, 'show'])->name('users.show');
+    
+    
+    Route::get('profile', [ProfileController::class, 'edit'])->name('profile');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+
+    
+
+    
 });
+

@@ -1,0 +1,147 @@
+@charset "UTF-8";
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100vh;
+    height: 100%;
+    background-image: linear-gradient(
+        180deg,
+        /* 上から下に向かってグラデーション */ #0d6efd,
+        /* 濃い青色を最上部に */ #66c5f6 50%,
+        /* 淡い青色を途中に */ #fee32c 100% /* 下部に黄緑 */
+    );
+}
+
+header {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.container_login {
+    text-align: center;
+    padding-top: 220px;
+    justify-content: center;
+}
+
+.logo_img img {
+    width: 200px;
+}
+
+header p {
+    color: #ffff;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+#container {
+    justify-content: center;
+}
+
+.from_login {
+    margin-top: 45px;
+    width: 420px;
+    background: #00000047;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 35px;
+}
+
+.from_login p {
+    color: #fff;
+    margin-top: 15px;
+    font-size: 1.7em;
+}
+.from_login p a {
+    margin-top: 30px;
+    display: inline-block;
+    font-size: 0.7em;
+    letter-spacing: -0.05em;
+    color: #fff;
+}
+
+.from_login label {
+    padding-top: 20px;
+    display: block;
+    text-align: left;
+    font-size: 1.1em;
+    color: #fff;
+}
+.from_login input {
+    height: 70px;
+    margin-top: 6px;
+    display: block;
+    height: 3.4em;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+}
+
+.from_login .btn {
+    width: 45%;
+    border-radius: 10px;
+    height: 54px;
+    margin-left: auto;
+    margin-top: 20px;
+    font-size: 1.6em;
+    background: #ed3a50;
+}
+
+.from_register {
+}
+
+.container_register {
+    text-align: center;
+    padding-top: 80px;
+    justify-content: center;
+}
+
+.container_register h2 {
+    color: #fff;
+    font-size: 2em;
+}
+
+#clear {
+    margin-top: 70px;
+    width: 420px;
+    padding: 40px;
+    background: #00000047;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#clear p {
+    margin-bottom: 0;
+    color: #fff;
+}
+.added_title {
+    font-size: 1.7em;
+    font-weight: bold;
+}
+
+.added_subtitle {
+    font-size: 1.3em;
+    padding-top: 50px;
+    text-align: left;
+    justify-content: center;
+}
+
+#clear a {
+    text-decoration: none;
+    color: #fff;
+}
+#clear .btn {
+    margin-top: 30px;
+    width: 50%;
+    border-radius: 10px;
+    height: 54px;
+    font-size: 1.3em;
+    background: #ed3a50;
+}

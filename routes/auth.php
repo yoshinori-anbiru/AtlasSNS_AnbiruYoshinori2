@@ -9,18 +9,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('guest')->group(function () {
 
     Route::get('login', [AuthenticatedSessionController::class, 'create']);
-    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+    Route::post('login', [AuthenticatedSessionController::class, 'store'])->name('login');
    
-    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
     Route::get('register', [RegisteredUserController::class, 'create']);
     Route::post('register', [RegisteredUserController::class, 'store']);
-    // ->name('added');でルートに名前をつける、addedで呼び出せる。URLが変わっても呼び出すことが可能
-    Route::get('added', [RegisteredUserController::class, 'added'])->name('added');
-  
-
+    
+    
 });
 
+// ->name('added');でルートに名前をつける、addedで呼び出せる。URLが変わっても呼び出すことが可能
+Route::get('added', [RegisteredUserController::class, 'added'])->name('added');
 
 // ログイン済のユーザーだけログアウト
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
