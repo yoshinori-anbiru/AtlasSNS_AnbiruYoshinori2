@@ -2,17 +2,15 @@
 
 html {
     height: 100%;
+    color: #fff;
 }
 
 body {
-    height: 100vh;
-    height: 100%;
-    background-image: linear-gradient(
-        180deg,
-        /* 上から下に向かってグラデーション */ #0d6efd,
-        /* 濃い青色を最上部に */ #66c5f6 50%,
-        /* 淡い青色を途中に */ #fee32c 100% /* 下部に黄緑 */
-    );
+    min-height: 100vh;
+    background: none !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
 }
 
 header {
@@ -43,11 +41,10 @@ header p {
 #container {
     justify-content: center;
 }
-
 .from_login {
     margin-top: 45px;
     width: 420px;
-    background: #00000047;
+    background: rgba(0, 0, 0, 0.3); /* 黒の透過 */
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -91,7 +88,8 @@ header p {
     margin-left: auto;
     margin-top: 20px;
     font-size: 1.6em;
-    background: #ed3a50;
+    background: #fff;
+    color: #fff;
 }
 
 .from_register {
@@ -143,5 +141,5 @@ header p {
     border-radius: 10px;
     height: 54px;
     font-size: 1.3em;
-    background: #ed3a50;
+    background: #fff;
 }
