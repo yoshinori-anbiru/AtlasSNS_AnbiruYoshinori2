@@ -17,12 +17,7 @@ header {
 #container {
     flex: 0 0 80%;
 }
-#side-bar {
-    position: relative;
-    box-sizing: border-box;
-    flex: 0 0 20%;
-    border-left: 1px solid #727272;
-}
+
 
 .inner {
     padding: 0 20px 0;
@@ -140,11 +135,7 @@ header {
 .form_control::placeholder {
 }
 
-.btn {
-    margin: 64px 0 0 0;
-    border: none;
-    background-color: #fff;
-}
+
 
 .btn img {
     border-radius: 3px;

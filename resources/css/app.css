@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@keyframes rotation{
+  0%{ transform:rotateX(0);}
+  100%{ transform:rotateX(360deg); }
+}
+
+.rotate-360-animation {
+  animation: rotation 0.5s ease-in-out forwards;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.btn-main {
+    border: none;
+    display: block;
+    border-radius: 10px;
+    color: white;
+    padding-top:7px ;
+    padding-bottom:7px;
+  
+    font-size: 20px;
+    letter-spacing: -0.1em;
+    background-color: #186AC9;
+}

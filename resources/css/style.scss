@@ -1,0 +1,5 @@
+@mixin btn($bg-color: #fff, $margin: 64px 0 0 0) {
+  margin: $margin;
+  border: none;
+  background-color: $bg-color;
+}
