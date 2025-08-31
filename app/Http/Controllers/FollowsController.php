@@ -47,6 +47,10 @@ public function unfollow($id)
     public function followerList(){
     $user = Auth::user();
     $followers = $user->followers;
+        // フォローしているユーザーの ID を取得
+    $followersIds = $followers->pluck('id');
+     // フォローしているユーザーの投稿を取得（新しい順）
+    $posts = \App\Models\Post::whereIn('user_id', $followersIds)->latest()->get();
 
     return view('follows.followerList', compact('followers','posts' ));
     }

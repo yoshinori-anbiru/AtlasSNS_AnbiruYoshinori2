@@ -39,13 +39,13 @@
         <div style=" box-sizing: border-box;
     flex: 0 0 20%;
     border-left: 1px solid #727272;" class="relative">
-            <nav id="menuList"
-                class=" absolute top-0 left-0 arrow_items bg-[#f5f8fa] w-full text-center hidden transition-all duration-300 ease-in-out">
-                <ul>
-                    <li style="border: 1px solid #ccc;" class="py-8 hover:bg-[#00297e]"><a href="/posts">HOME</a></li>
-                    <li style="border: 1px solid #ccc;" class="py-8 hover:bg-[#00297e]"><a
+            <nav>
+                <ul id="menuList"
+                    class=" absolute top-0  left-0 arrow_items bg-[#f5f8fa] w-full text-center hidden transition-all duration-300 ease-in-out">
+                    <li style="border: 1px solid #ccc;" class="py-14 hover:bg-[#00297e]"><a href="/posts">HOME</a></li>
+                    <li style="border: 1px solid #ccc;" class="py-14 hover:bg-[#00297e]"><a
                             href="{{ route('profile.edit') }}">プロフィール編集</a></li>
-                    <li style="border: 1px solid #ccc;" class="py-8 hover:bg-[#00297e]">
+                    <li style="border: 1px solid #ccc;" class="py-14 hover:bg-[#00297e]">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button type="submit">ログアウト</button>
@@ -54,31 +54,31 @@
                 </ul>
             </nav>
 
-            <div id="confirm" class="p-4 pl-8"
+            <div id="confirm" class="p-4"
                 style= " box-sizing: border-box; flex: 0 0 20%; border-bottom: 1px solid
                 #727272;">
-                <p>{{ Auth::user()->username }}さんの</p>
+                <p class="text-3xl">{{ Auth::user()->username }}さんの</p>
                 <div class=" my-10">
                     <p class="mt-10 text-3xl">フォロー数
 
                         <span class="ml-[60px]">{{ Auth::user()->followings()->count() }}人</span>
                     </p>
-                    <a class="btn-main block w-[50%] text-center ml-auto mt-10"
+                    <a class="btn-main hover:text-[#ffffff] block w-[50%] text-center ml-auto mt-10"
                         href="{{ route('follow.list') }}">フォローリスト</a>
                 </div>
                 <div class="my-2">
-                    <p class="mt-10 text-3xl">フォロワー数
+                    <p class="mt-10  text-3xl">フォロワー数
                         <span class="ml-[46px]">{{ Auth::user()->followers()->count() }}人</span>
 
                     </p>
-                    <a class="btn-main block w-[50%] text-center ml-auto my-10"
+                    <a class="btn-main hover:text-[#ffffff] block w-[50%] text-center ml-auto my-10"
                         href="{{ route('follower.list') }}">フォロワーリスト</a>
                 </div>
             </div>
 
             <!-- 検索ボタン（下に固定・中央揃え） -->
             <div class="mb-6">
-                <a class="btn-main block mt-20 w-[60%] mx-auto text-center"
+                <a class="btn-main block mt-20 hover:text-[#ffffff] w-[60%] mx-auto text-center"
                     href="{{ route('users.search') }}">ユーザー検索</a>
             </div>
 

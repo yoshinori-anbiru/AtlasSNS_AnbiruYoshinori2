@@ -22,7 +22,7 @@ Route::middleware(['auth'])->group(function (){
     // 投稿一覧（トップページ）
     Route::get('/posts', [PostsController::class, 'index']);
     Route::post('/posts', [PostsController::class, 'store'])->name('posts.store');
-    Route::post('/posts/authorCreate/{id}', [PostsController::class, 'authorCreate'])->name('posts.authorCreate');
+    Route::post('/posts/authorCreate', [PostsController::class, 'authorCreate'])->name('posts.authorCreate');
     Route::get('/posts/delete/{id}', [PostsController::class, 'delete'])->name('posts.delete');
 
     Route::get('profile', [ProfileController::class, 'profile']);

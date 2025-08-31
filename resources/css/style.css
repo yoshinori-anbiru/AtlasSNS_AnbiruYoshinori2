@@ -18,6 +18,9 @@ header {
     flex: 0 0 80%;
 }
 
+label{
+    font-weight: 400;
+}
 
 .inner {
     padding: 0 20px 0;
@@ -112,12 +115,17 @@ header {
 
 /* 投稿フォームーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 
-.form_group {
-    padding: 40px 0 20px 100px;
-    display: flex;
+.form_control {
+  border: none; /* ← ボーダーを消す */
+  outline: none; /* フォーカス時の枠も消す（必要なら） */
+  resize: none; /* リサイズを無効にするなら */
+  background-color: transparent; /* 背景を消したいとき */
+}
 
-    height: auto;
-    border-bottom: #c7c7c7 5px solid;
+.no-border {
+  border: none;
+  outline: none;
+  resize: none; /* 不要なら削除OK */
 }
 
 .form_group img {
@@ -129,7 +137,7 @@ header {
     border: none;
     margin: 0 0 0 20px;
     font-size: 1.5em;
-    width: 70%;
+
 }
 
 .form_control::placeholder {

@@ -17,7 +17,7 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
    
-
+// ユーザーは複数の投稿を持っている。
     public function posts()
 {
     return $this->hasMany(Post::class);

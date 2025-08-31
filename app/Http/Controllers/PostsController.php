@@ -56,25 +56,26 @@ class PostsController extends Controller
 
 
 
-      public function authorCreate(Request $request, $id)
-    {
-        // リクエストから投稿内容を取得
-        $request->validate([
-            'post' => 'required|min:1|max:150', // バリデーション
-        ]);
+  public function authorCreate(Request $request)
+{
+    // 1) 厳格バリデーション（stringを明示）
+    $validated = $request->validate([
+        'id'   => ['required','integer','exists:posts,id'],
+        'post' => ['required','string','max:150'],
+    ], [
+        'post.max' => '投稿は150文字以内で入力してください。',
+    ]);
 
-        $post = Post::findOrFail($request->input('id')); //リクエストから投稿IDを取得
-        //findOrFailメソッドは、指定されたIDのレコードが見つからなかった場合に、自動的に404エラーページを表示。見つかった場合は、その投稿データを取得し、$postに格納。
-        $post->post = $request->input('post');
-        $post->save();
+    $post = Post::findOrFail($validated['id']);
 
-        // 前のページにリダイレクト
-        return redirect('/posts');
+    // 2) 念のためサーバ側で150文字に丸める（合成文字や絵文字対策にも有効）
+    $clean = trim($validated['post']);
+    $clean = mb_substr($clean, 0, 150);
 
+    $post->post = $clean;
+    $post->save();
 
-        //     Post::findOrFail(3)で、IDが3の投稿を取得。
-        // 取得した投稿の内容を"新しい投稿内容"に変更。
-        // save()メソッドを使って、データベース上の投稿を更新
-    }
+    return redirect('/posts')->with('success', '投稿を更新しました');
+}
 
 }

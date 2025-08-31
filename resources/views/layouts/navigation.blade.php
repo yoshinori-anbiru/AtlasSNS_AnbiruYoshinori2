@@ -5,7 +5,7 @@
                     class=" w-[150px] h-auto"></a>
         </h1>
     </div>
-    <div class=" ml-auto flex items-center gap-4 perspective-1000">
+    <div class=" ml-auto flex items-center gap-10 perspective-1000">
         <p class="text-[24px] text-white">{{ Auth::user()->username }}<span>さん</span></p>
 
         <svg id="toggleArrow"
@@ -16,6 +16,6 @@
                 clip-rule="evenodd" />
         </svg>
 
-        <img src="images/icon1.png">
+        <img src="{{ asset('images/' . Auth::user()->icon_image) }}" width="50" height="50">
     </div>
 </div>

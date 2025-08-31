@@ -33,7 +33,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         // ランダムユーザー20件を追加
-        for ($i = 1; $i <= 20; $i++) {
+        for ($i = 1; $i <= 40; $i++) {
             DB::table('users')->insert([
                 'username' => $faker->lastName . $faker->firstName,
                 'email' => $faker->unique()->safeEmail(),

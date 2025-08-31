@@ -25,6 +25,14 @@ time, mark, audio, video {
 	vertical-align: baseline;
 	text-decoration: none;;
 }
+
+body {
+  font-family: 
+    -apple-system, BlinkMacSystemFont, /* iOS / macOS */
+    "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans", /* macOS 日本語 */
+    "Yu Gothic UI", "Yu Gothic", /* Windows 日本語 */
+    "Segoe UI", Roboto, "Noto Sans JP", Arial, sans-serif; /* Windows/Android/Linux fallback */
+}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
