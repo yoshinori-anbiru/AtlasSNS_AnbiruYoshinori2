@@ -8,11 +8,11 @@
     <meta name="description" content="ページの内容を表す文章" />
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
+    @vite(['resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    <header class="px-10 py-10 ">
+    <header class="px-2 py-5 ">
         @include('layouts.navigation')
     </header>
     <!-- Page Content -->
@@ -85,7 +85,7 @@
         </div>
         <footer>
         </footer>
-        <script src="{{ asset('js/app.js') }}"></script>
+
         <script src="JavaScriptファイルのURL"></script>
         <script src="JavaScriptファイルのURL"></script>
 

@@ -13,7 +13,7 @@ class PostsController extends Controller
       public function index(Request $request)
     {
           // 投稿一覧を取得
-        $posts = Post::all(); // モデルPostを使用して全ての投稿を取得
+        $posts = Post::latest()->get(); // 新しい順に取得
 
         // 取得した投稿データをビューに渡す
         return view('posts.index', compact('posts'));

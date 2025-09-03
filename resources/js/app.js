@@ -1,7 +1,9 @@
 //アコーディオンを Alpine.jsで実装するためにインポート
-import './bootstrap';
+import "./bootstrap";
+// resources/js/app.js
+import "../css/app.css";
 
-import Alpine from 'alpinejs';
+import Alpine from "alpinejs";
 
 window.Alpine = Alpine;
 

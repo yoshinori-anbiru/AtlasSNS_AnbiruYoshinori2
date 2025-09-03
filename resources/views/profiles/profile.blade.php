@@ -19,19 +19,19 @@
             </div>
 
         </div>
-        <div class="text-[#ffff] bg-[#ed3834]  text-center pt-2 ml-auto mr-5 mt-[60px] rounded-[10px] block ">
+        <div class="text-[#ffff]  text-center pt-2 ml-auto mr-5 mt-[60px]  block ">
 
             @if (Auth::user()->followings->contains($user->id))
                 {{-- フォロー済みならフォロー解除 --}}
                 <form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
                     @csrf
-                    <button type="submit" class="px-[30px] py-2">フォロー解除</button>
+                    <button type="submit" class="px-[30px] bg-[#ed3834] rounded-[10px]  py-2">フォロー解除</button>
                 </form>
             @else
                 {{-- 未フォローならフォロー --}}
                 <form action="{{ route('follow', ['id' => $user->id]) }}" method="POST">
                     @csrf
-                    <button type="submit" class="px-[30px] py-2">フォローする</button>
+                    <button type="submit" class="px-[30px] bg-[#51acff] rounded-[10px]   py-2">フォローする</button>
                 </form>
             @endif
         </div>

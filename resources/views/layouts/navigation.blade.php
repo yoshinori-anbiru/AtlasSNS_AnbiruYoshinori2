@@ -1,10 +1,8 @@
 <!-- Alpine.js を使う宣言 -->
-<div id = "head" class="flex">
-    <div class="mr-auto">
-        <h1 class="w-auto "><a class="w-auto " href="/posts"><img src="{{ asset('images/atlas.png') }}"
-                    class=" w-[150px] h-auto"></a>
-        </h1>
-    </div>
+<div id = "head" class="flex items-center">
+    <h1 class="w-auto"><a class="w-auto h-auto " href="/posts"><img src="{{ asset('images/atlas.png') }}"
+                class=" w-[150px] h-auto"></a>
+    </h1>
     <div class=" ml-auto flex items-center gap-10 perspective-1000">
         <p class="text-[24px] text-white">{{ Auth::user()->username }}<span>さん</span></p>
 

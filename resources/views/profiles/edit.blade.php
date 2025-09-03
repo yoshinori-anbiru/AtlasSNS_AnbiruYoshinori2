@@ -1,12 +1,12 @@
 <x-login-layout>
     <div class="mt-[100px] flex pl-[25%] ">
-        <img src="/images/icon1.png" class="block w-[50px] h-[50px] mr-20">
+        <img src="/images/icon1.png" class="block w-[60px] h-[60px] mr-20">
         @if (session('status'))
             <div class="text-green-500 mb-4">{{ session('status') }}</div>
         @endif
 
         <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data"
-            class="space-y-20 w-[70%] text-[20px] ">
+            class="space-y-10 w-[70%] text-[20px] ">
             @csrf
 
             <!-- ユーザー名 -->
@@ -62,7 +62,7 @@
                 <label class="w-[30%] mr-[50px] ">アイコン画像</label>
                 <div class="flex-1">
                     <label style="border:solid 1px rgb(209 213 219);"
-                        class="w-full h-[80px]  flex items-center justify-center bg-[#efefef] rounded text-[20px] cursor-pointer">
+                        class="w-full h-[100px]  flex items-center justify-center bg-[#efefef] rounded text-[20px] cursor-pointer">
 
                         <span class="bg-[#fff] px-10  cursor-pointer  py-2 text-[#a0a0a0]">ファイルを選択</span>
 
